@@ -1,4 +1,4 @@
-import { Select, MultiSelect } from '@mantine/core';
+import { Select, MultiSelect, TextInput, Title, Table, Badge } from '@mantine/core';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -9,7 +9,6 @@ function App() {
 
   const [categories, setCategories] = useState([]);
   const [tags, setTags] = useState([]);
-  const [descs, setDescs] = useState('');
 
   useEffect(() => {
     fetchData();
@@ -42,13 +41,14 @@ function App() {
   };
 
   return (
-    <div style={{
-      padding: '10px',
-      display: 'flex',
-      flexDirection: 'row',
-      width: '300px',
-    }}>
-      <div>
+    <div style={{ padding: '12px' }}>
+      <Title order={5}>Filters</Title>
+      <div style={{
+        padding: '10px',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        columnGap: '4px'
+      }}>
         <Select
           value={categoryFilter}
           onChange={setCategoryFilter}
@@ -60,10 +60,43 @@ function App() {
           onChange={setTagFilter}
           label={'Tags'}
           data={tags}
+          clearable
+        />
+        <TextInput
+          value={descFilter}
+          onChange={(e) => setDescFilter(e.currentTarget.value)}
+          label={'Description'}
         />
       </div>
+      <Title order={5}>Results</Title>
+      <Table>
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th>Name</Table.Th>
+            <Table.Th>Category</Table.Th>
+            <Table.Th>Tags</Table.Th>
+            <Table.Th>Description</Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>
+          {data.map((dataRow) => (
+            <Table.Tr key={dataRow.id}>
+              <Table.Td>{dataRow.name}</Table.Td>
+              <Table.Td>{dataRow.category.name}</Table.Td>
+              <Table.Td>{dataRow.tags
+                .map((t) => t.name)
+                .map((t) =>
+                  <Badge
+                    id={t}
+                    variant={'outline'}
+                    style={{ marginRight: '2px' }}>{t}</Badge>)
+              }</Table.Td>
+              <Table.Td>{dataRow.description}</Table.Td>
+            </Table.Tr>
+          ))}
+        </Table.Tbody>
+      </Table>
     </div>
-
   );
 }
 
