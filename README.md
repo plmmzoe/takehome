@@ -13,12 +13,13 @@ python manage.py runserver
 ```
 
 ## access
-Product List: /api/listings/
-Category List: /api/categories/
-Tag List: /api/tags/
+* Product List: /api/listings/
+* Category List: /api/categories/
+* Tag List: /api/tags/
 
 ## post product
 Sample: 
+```
 {
     "id": 1,
     "name": "Sample product",
@@ -26,19 +27,22 @@ Sample:
     "category": 1,
     "tags": [1]
 }
-
+```
 ## post category
 Sample:
+```
 {
     "name": "Sample category"
 }
+```
 
 ## post tag
 Sample:
+```
 {
     "name": "Sample tag"
 }
-
+```
 
 # Frontend
 ```
