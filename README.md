@@ -7,16 +7,45 @@ Python and Node.js should be installed
 * Node.js [https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-installer-to-install-nodejs-and-npm] npm Docs
 
 # Backend
+```
 cd backend
 python manage.py runserver
+```
 
 ## access
-/api/listings/
+Product List: /api/listings/
+Category List: /api/categories/
+Tag List: /api/tags/
+
+## post product
+Sample: 
+{
+    "id": 1,
+    "name": "Sample product",
+    "description": "Sample product description",
+    "category": 1,
+    "tags": [1]
+}
+
+## post category
+Sample:
+{
+    "name": "Sample category"
+}
+
+## post tag
+Sample:
+{
+    "name": "Sample tag"
+}
+
 
 # Frontend
+```
 cd frontend
 npm install
 npm run start
+```
 
 admin:
 UserName: zoez
