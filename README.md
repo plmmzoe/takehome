@@ -1,4 +1,11 @@
 To run project:
+
+# Pre-requisite
+
+Python and Node.js should be installed
+* Python [https://www.python.org/downloads/]python download
+* Node.js [https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-installer-to-install-nodejs-and-npm] npm Docs
+
 # Backend
 cd backend
 python manage.py runserver
