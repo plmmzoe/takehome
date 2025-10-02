@@ -12,11 +12,9 @@ class TagSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']        
 
 class ProductSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
-    tags = TagSerializer(many=True)
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
+    tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
 
     class Meta:
         model = Product
         fields = ['id', 'name', 'description', 'category', 'tags']
-    
-    #TODO: Possible improvement create/update

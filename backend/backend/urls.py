@@ -21,6 +21,9 @@ from listings import views
 
 router = routers.DefaultRouter()
 router.register(r'listings', views.ProductView, 'listings')
+router.register(r'categories', views.CategoryView, 'categories')
+router.register(r'tags', views.TagView, 'tags')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
