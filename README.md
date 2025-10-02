@@ -65,3 +65,7 @@ Password: password123.
 2. https://mantine.dev/
 3. https://docs.djangoproject.com/en/5.2/ (Lookup API, QuerySet)
 4. https://django-filter.readthedocs.io/en/stable/ref/filters.html?utm_source=chatgpt.com (filter)
+
+## AI Attribution:
+* Generate initial data script for migration (0004_initialize_data.py)
+* Helped class ProductView get_queryset function for lookup api explaination
